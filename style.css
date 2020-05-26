@@ -25,6 +25,25 @@ body {
     bottom: 10px;
     display: block;
     border-radius: 50%;
-    background-color: palevioletred;
+    background-color: #ff789e;
     z-index: 314159;
+}
+
+header {
+    position: absolute;
+    top: 0px;
+    min-width: 100vw;
+    max-width: 100vw;
+    min-height: 74px;
+    display: block;
+    z-index: 314159;
+    background-color: white;
+    text-align: center;
+}
+
+header h2 {
+    margin: 0px;
+    padding-top: 12px;
+    font-size: 30px;
+    letter-spacing: 5px;
 }
