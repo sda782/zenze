@@ -6,8 +6,20 @@
             "latitude": "55.676098",
             "longitude": "12.568337"
         },
-        "iamges": {
+        "images": {
             "0": "https://s19623.pcdn.co/wp-content/uploads/2015/08/copenhagen-budget-guide.jpg"
         }
+    },
+    "1": {
+        "title": "Roskilde havn",
+        "description": "flot sted",
+        "coord": {
+            "latitude": "55.65079542677747",
+            "longitude": "12.076622938246121"
+        },
+        "images": {
+            "0": "images/roskildehavn_small.jpg"
+        }
+
     }
 }
