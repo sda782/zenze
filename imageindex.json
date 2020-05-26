@@ -1,7 +1,7 @@
 {
     "0": {
-        "title": "Copenhagen",
-        "description": "Denmarks capital",
+        "title": "Nyhavn",
+        "description": "så mange farver",
         "coord": {
             "latitude": "55.676098",
             "longitude": "12.568337"
@@ -12,13 +12,13 @@
     },
     "1": {
         "title": "Roskilde havn",
-        "description": "flot sted",
+        "description": "Oh look ships",
         "coord": {
             "latitude": "55.65079542677747",
             "longitude": "12.076622938246121"
         },
         "images": {
-            "0": "/images/roskildehavn_small.jpg"
+            "0": "../images/roskildehavn_small.jpg"
         }
 
     }

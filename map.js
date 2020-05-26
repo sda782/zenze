@@ -24,16 +24,14 @@ $('.leaflet-control-attribution').toggle();
 map.locate({ setView: true, maxZoom: 18 });
 
 $.getJSON('https://raw.githubusercontent.com/sda782/zenze/master/imageindex.json', (Iindex) => {
-    console.log('test');
-
     Object.keys(Iindex).forEach(function(k) {
         var item = Iindex[k];
-        console.log(item);
         var marker = L.marker([item.coord.latitude, item.coord.longitude]).addTo(map);
         var photoImg = '<img src="' + item.images[0] + '" height="150px" width="150px"/>';
-        marker.bindPopup("<b>" + item.title + "</b><br><p>" + item.description + "</p>" + photoImg);
+        marker.bindPopup("<b>" + item.title + "</b><br><p>" + item.description + "</p>" + photoImg).on('click', () => { map.setView([item.coord.latitude, item.coord.longitude]) });
     });
 });
+
 
 //find you
 function onLocationFound(e) {
