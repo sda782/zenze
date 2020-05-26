@@ -1,0 +1,13 @@
+{
+    "0": {
+        "title": "Copenhagen",
+        "description": "Denmarks capital",
+        "coord": {
+            "latitude": "55.676098",
+            "longitude": "12.568337"
+        },
+        "iamges": {
+            "0": "https://s19623.pcdn.co/wp-content/uploads/2015/08/copenhagen-budget-guide.jpg"
+        }
+    }
+}
