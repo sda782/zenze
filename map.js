@@ -1,6 +1,14 @@
 var map = L.map('map', { zoomControl: false }).fitWorld();
 var imageindex;
 
+// When ready...
+window.addEventListener("load", function() {
+    // Set a timeout...
+    setTimeout(function() {
+        // Hide the address bar!
+        window.scrollTo(0, 1);
+    }, 0);
+});
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: '',
