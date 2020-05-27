@@ -1,10 +1,32 @@
 var map = L.map('map', { zoomControl: false }).fitWorld();
-var imageindex;
+var currentlocation = {
+    "lat": 0,
+    "long": 0
+};
+var selectedlocation = {
+    "lat": 0,
+    "long": 0
+};
+
+//  Creates icons
+var UI_currentlocation = L.icon({
+    iconUrl: 'UI/currentlocation.png',
+    iconSize: [16, 16], // size of the icon
+    iconAnchor: [8, 8], // point of the icon which will correspond to marker's location
+});
+
+var UI_locationmarker = L.icon({
+    iconUrl: 'UI/locationmarker.png',
+    iconSize: [48, 48], // size of the icon
+    iconAnchor: [24, 24], // point of the icon which will correspond to marker's location
+    popupAnchor: [0, -24] // point from which the popup should open relative to the iconAnchor
+});
+
 
 // When ready...
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
     // Set a timeout...
-    setTimeout(function() {
+    setTimeout(function () {
         // Hide the address bar!
         window.scrollTo(0, 1);
     }, 0);
@@ -24,18 +46,23 @@ $('.leaflet-control-attribution').toggle();
 map.locate({ setView: true, maxZoom: 18 });
 
 $.getJSON('https://raw.githubusercontent.com/sda782/zenze/master/imageindex.json', (Iindex) => {
-    Object.keys(Iindex).forEach(function(k) {
+    Object.keys(Iindex).forEach(function (k) {
         var item = Iindex[k];
-        var marker = L.marker([item.coord.latitude, item.coord.longitude]).addTo(map);
+        var marker = L.marker([item.coord.latitude, item.coord.longitude], { icon: UI_locationmarker }).addTo(map);
         var photoImg = '<img src="' + item.images[0] + '" height="150px" width="150px"/>';
-        marker.bindPopup("<b>" + item.title + "</b><br><p>" + item.description + "</p>" + photoImg).on('click', () => { map.setView([item.coord.latitude, item.coord.longitude]) });
+        marker.bindPopup(photoImg+"<br><h3>" + item.title + "</h3><p>" + item.description + "</p>").on('click', () => {
+            map.setView([item.coord.latitude, item.coord.longitude], 16);
+        });
     });
 });
 
 
-//find you
+//finds you
 function onLocationFound(e) {
-    L.marker(e.latlng).addTo(map);
+    L.marker(e.latlng, { icon: UI_currentlocation }).addTo(map);
+    currentlocation.lat = e.latlng.lat;
+    currentlocation.long = e.latlng.lng;
+    console.log(currentlocation);
 }
 
 map.on('locationfound', onLocationFound);
@@ -45,3 +72,7 @@ function onLocationError(e) {
 }
 
 map.on('locationerror', onLocationError);
+
+function curpos(){
+    map.setView([currentlocation.lat, currentlocation.long], 16);
+}
