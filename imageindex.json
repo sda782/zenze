@@ -42,5 +42,27 @@
         "images": {
             "0": "https://cdn.discordapp.com/attachments/705492982438166560/715149984441434142/IMG_0454.JPG"
         }
+    },
+    "4": {
+        "title": "Kings cross station",
+        "description": "Harry Potter",
+        "coord": {
+            "latitude": "51.532171",
+            "longitude": "-0.123765"
+        },
+        "images": {
+            "0": "https://cdn.discordapp.com/attachments/591991077221957632/715163256884559882/2017-09-20_16.11.52.jpg"
+        }
+    },
+    "5": {
+        "title": "Torvalsens Museum",
+        "description": "Wow en stol",
+        "coord": {
+            "latitude": "55.676725",
+            "longitude": "12.578781"
+        },
+        "images": {
+            "0": "https://cdn.discordapp.com/attachments/591991077221957632/715163951465234452/received_1969785119804358.png"
+        }
     }
 }
