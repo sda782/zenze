@@ -1,16 +1,5 @@
 {
     "0": {
-        "title": "Nyhavn",
-        "description": "så mange farver",
-        "coord": {
-            "latitude": "55.676098",
-            "longitude": "12.568337"
-        },
-        "images": {
-            "0": "https://s19623.pcdn.co/wp-content/uploads/2015/08/copenhagen-budget-guide.jpg"
-        }
-    },
-    "1": {
         "title": "Roskilde havn",
         "description": "Oh look ships",
         "coord": {
@@ -21,7 +10,7 @@
             "0": "images/roskildehavn_small.JPG?raw=true"
         }
     },
-    "2": {
+    "1": {
         "title": "Sølund station",
         "description": "hvornår kommer toget...",
         "coord": {
@@ -32,7 +21,7 @@
             "0": "https://cdn.discordapp.com/attachments/705492982438166560/715149766123847680/IMG_3299.JPG"
         }
     },
-    "3": {
+    "2": {
         "title": "Studenter gruppe billede",
         "description": "Et af de eneste gode billeder af os",
         "coord": {
@@ -43,7 +32,7 @@
             "0": "https://cdn.discordapp.com/attachments/705492982438166560/715149899901042699/IMG_1950.JPG"
         }
     },
-    "4": {
+    "3": {
         "title": "Wow cool",
         "description": "noget andet end nyhavn",
         "coord": {
