@@ -64,5 +64,16 @@
         "images": {
             "0": "https://cdn.discordapp.com/attachments/591991077221957632/715163951465234452/received_1969785119804358.png"
         }
+    },
+    "6": {
+        "title": "HTX Roskilde",
+        "description": "when you try to be fancy",
+        "coord": {
+            "latitude": "55.625370",
+            "longitude": "12.082813"
+        },
+        "images": {
+            "0": "https://cdn.discordapp.com/attachments/591991077221957632/715167019313659924/image0.jpg"
+        }
     }
 }
