@@ -1,4 +1,5 @@
 var map = L.map('map', { zoomControl: false }).fitWorld();
+
 var currentlocation = {
     "lat": 0,
     "long": 0
@@ -16,7 +17,6 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(map);
 
 map.locate({ setView: true, maxZoom: 18 });
-
 $('.leaflet-control-attribution').toggle();
 
 //get marker location and images
@@ -25,11 +25,13 @@ $.getJSON('https://raw.githubusercontent.com/sda782/zenze/master/imageindex.json
         var item = Iindex[k];
         var marker = L.marker([item.coord.latitude, item.coord.longitude], { icon: UI_locationmarker }).addTo(map);
         var photoImg = '<img src="' + item.images[0] + '" height="150px" width="150px"/>';
-        marker.bindPopup(photoImg + "<br><h3>" + item.title + "</h3><p>" + item.description + "</p>").on('click', () => {
+        marker.bindPopup(photoImg + "<br><h3>" + item.title + "</h3><p>" + item.name + "</p>").on('click', () => {
             map.setView([item.coord.latitude, item.coord.longitude], 16);
         });
     });
 });
+
+L.Control.geocoder().addTo(map);
 
 //create marker at clicked location
 map.on('click', selectpos);
@@ -45,7 +47,6 @@ function onLocationFound(e) {
     L.marker(e.latlng, { icon: UI_currentlocation }).addTo(map);
     currentlocation.lat = e.latlng.lat;
     currentlocation.long = e.latlng.lng;
-    console.log(currentlocation);
 }
 
 function onLocationError(e) {
@@ -63,7 +64,7 @@ function selectpos(e) {
         map.removeLayer(selectedpos);
     };
     selectedpos = L.marker(e.latlng).addTo(map);
-    cmd = '>zenze ' + e.latlng.lat + ' ' + e.latlng.lng + ' [title]';
+    cmd = '>zenze ' + e.latlng.lat + ' ' + e.latlng.lng + '[name] [title]';
     selectedpos.bindPopup('<p>Add your image using the discord command</p><button onclick="copytoclipboard()">copy command</button>').openPopup();
 
 }
