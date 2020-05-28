@@ -25,7 +25,7 @@ $.getJSON('https://raw.githubusercontent.com/sda782/zenze/master/imageindex.json
         var item = Iindex[k];
         var marker = L.marker([item.coord.latitude, item.coord.longitude], { icon: UI_locationmarker }).addTo(map);
         var photoImg = '<img src="' + item.images[0] + '" height="150px" width="150px"/>';
-        marker.bindPopup(photoImg + "<br><h3>" + item.title + "</h3><p>" + item.name + "</p>").on('click', () => {
+        marker.bindPopup(photoImg + "<br><h3>" + item.title + "</h3><p>" + item.author + "</p>").on('click', () => {
             map.setView([item.coord.latitude, item.coord.longitude], 16);
         });
     });
