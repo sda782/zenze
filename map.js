@@ -4,6 +4,7 @@ var currentlocation = {
     "long": 0
 };
 var selectedpos;
+var cmd;
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: '',
@@ -62,5 +63,16 @@ function selectpos(e) {
         map.removeLayer(selectedpos);
     };
     selectedpos = L.marker(e.latlng).addTo(map);
-    selectedpos.bindPopup('<p>You are at </p><p>lat: ' + e.latlng.lat + '</p><p>lng: ' + e.latlng.lng).openPopup();
+    cmd = '>zenze ' + e.latlng.lat + ' ' + e.latlng.lng + ' [title]';
+    selectedpos.bindPopup('<p>Add your image using the discord command</p><button onclick="copytoclipboard()">copy command</button>').openPopup();
+
+}
+
+function copytoclipboard() {
+    var dummy = document.createElement("textarea");
+    document.body.appendChild(dummy);
+    dummy.value = cmd;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
 }
