@@ -43,10 +43,6 @@ body {
     text-align: right;
 }
 
-.leaflet-top {
-    top: 80px;
-}
-
 #add_btn {
     min-width: 45px;
     max-width: 45px;

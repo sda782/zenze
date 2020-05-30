@@ -1,14 +1,3 @@
-// instead of import {} from 'leaflet-geosearch', use the `window` global
-var GeoSearchControl = window.GeoSearch.GeoSearchControl;
-var OpenStreetMapProvider = window.GeoSearch.OpenStreetMapProvider;
-
-// remaining is the same as in the docs, accept for the var instead of const declarations
-var provider = new OpenStreetMapProvider();
-
-var searchControl = new GeoSearchControl({
-    provider: provider,
-});
-
 var map = L.map('map', { zoomControl: false }).fitWorld();
 
 var currentlocation = {
@@ -28,7 +17,6 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(map);
 
 map.locate({ setView: true, maxZoom: 18 });
-map.addControl(searchControl);
 $('.leaflet-control-attribution').toggle();
 
 //get marker location and images
@@ -43,6 +31,8 @@ $.getJSON('https://raw.githubusercontent.com/sda782/zenze/master/imageindex.json
     });
 });
 
+L.Control.geocoder().addTo(map);
+
 //create marker at clicked location
 map.on('click', selectpos);
 
@@ -50,9 +40,7 @@ map.on('click', selectpos);
 map.on('locationfound', onLocationFound);
 map.on('locationerror', onLocationError);
 
-map.on('geosearch/showlocation', (e) => {
-    map.setView(e.latlng);
-});
+
 
 //functions
 function onLocationFound(e) {
