@@ -31,7 +31,16 @@ $.getJSON('https://raw.githubusercontent.com/sda782/zenze/master/imageindex.json
     });
 });
 
-L.Control.geocoder().addTo(map);
+var searchControl = L.esri.Geocoding.geosearch().addTo(map);
+
+var results = L.layerGroup().addTo(map);
+
+searchControl.on('results', function(data) {
+    results.clearLayers();
+    for (var i = data.results.length - 1; i >= 0; i--) {
+        results.addLayer(L.marker(data.results[i].latlng));
+    }
+});
 
 //create marker at clicked location
 map.on('click', selectpos);
@@ -39,8 +48,6 @@ map.on('click', selectpos);
 //finds you
 map.on('locationfound', onLocationFound);
 map.on('locationerror', onLocationError);
-
-
 
 //functions
 function onLocationFound(e) {
